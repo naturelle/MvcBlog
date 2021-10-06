@@ -1,0 +1,8 @@
+@model IEnumerable<EntityLayer.Concrete.Blog>
+
+@{
+    ViewData["Title"] = "BlogDetails";
+}
+
+<h1>BlogDetails</h1>
+

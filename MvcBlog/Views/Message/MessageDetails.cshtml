@@ -1,0 +1,25 @@
+﻿@model EntityLayer.Concrete.Message2
+@{
+    ViewData["Title"] = "MessageDetails";
+}
+
+<h1>MessageDetails</h1>
+
+<br />
+
+
+@Html.Label("Message Id")
+@Html.TextBoxFor(x => x.MessageID, new { @class = "form-control" })
+
+<br />
+@Html.Label("Message Title")
+@Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+<br />
+@Html.Label("Message Dateils")
+@Html.TextAreaFor(x => x.MessageDetails,20,3, new { @class = "form-control" })
+
+
+<br />
+<button class="btn btn-info">Go to Messages</button>
+
+
