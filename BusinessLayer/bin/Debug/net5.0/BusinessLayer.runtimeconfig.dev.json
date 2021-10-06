@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Ebru\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Ebru\\.nuget\\packages"
+    ]
+  }
+}
