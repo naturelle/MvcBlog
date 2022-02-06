@@ -1,0 +1,73 @@
+﻿
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<EntityLayer.Concrete.Category>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Category Name
+            </th>
+            <th>
+                Make passive
+            </th>
+            <th>Make Active</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.CatID
+                </td>
+                <td>
+                    @item.CatName
+                </td>
+                <td>
+                    <a href="/Admin/Category/CategoryDelete/@item.CatID/" id="DeleteBtn"
+                       onclick="return confirm('Sure you want to make passive');" class="btn btn-github">Make passive</a>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-github">Make active</a>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-github">Update</a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CatID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CatID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CatID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Admin/Category/AddCategory/" class="btn btn-primary">New Category</a>
+<br />
+<br />
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+<br />
+<br />
+<a href="/Admin/Blog/ExportStaticExcelBlogList" class="btn btn-primary">Excel Static Download</a>
+<a href="/Admin/Blog/ExportDynamicExcelBlogList" class="btn btn-primary">Excel Dynamic Download</a>
+@*<button class="btn btn-primary" onclick="DowloadExcel">Excel Download</button>*@
+@*<script>
+    function DowloadExcel() {
+        wind.open("/Admin/Blog/ExportStaticExcelBlogList");
+    }
+</script>*@
